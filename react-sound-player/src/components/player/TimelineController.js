@@ -61,7 +61,7 @@ const TimelineController = ({ audioState, player, data }) => {
                         {data.trackName}
                     </label>
                 </div>
-                <div className="track-time">
+                <div>
                     <div className="current-time">
                         <label >
                             {formatTime(currentTime)}
@@ -72,7 +72,6 @@ const TimelineController = ({ audioState, player, data }) => {
                             {showDuration()}
                         </label>
                     </div>
-
                 </div>
 
                 <Slider

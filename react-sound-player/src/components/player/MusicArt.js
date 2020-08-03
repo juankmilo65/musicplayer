@@ -5,12 +5,11 @@ import "./musicPlayerStyles.css"
 
 const MiniMuiscArt = ({ playPause, data, playNext, playPrevious, showHideCallback, showHidePlayerContent }) => {
 
-
     if (data !== null) {
         return (
             <div className="player-content">
                 <div id="album-art" className={showHidePlayerContent ? 'active' : ''}>
-                    <img src={data.thumbnail} className={showHidePlayerContent ? 'active' : ''} />
+                    <img alt="thumbnail" src={data.thumbnail} className={showHidePlayerContent ? 'active' : ''} />
                     <div id="buffer-box">Buffering ...</div>
                 </div>
                 <div className="player-controls" >
