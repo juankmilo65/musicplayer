@@ -20,7 +20,7 @@
   top: 0;
   right: 15px;
   left: 15px;
-  padding: 13px 22px 10px 184px;
+  padding: 0px 22px 10px 184px;
   background-color: #003f63;
   transition: 0.3s ease top;
   z-index: 1;
@@ -67,7 +67,7 @@
 
 #album-art {
   position: relative;
-  top: -50px;
+  top: -40px;
   width: 115px;
   height: 115px;
   margin-left: 40px;

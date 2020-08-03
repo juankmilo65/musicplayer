@@ -14,6 +14,7 @@ const MainPlayer = () => {
     const [trackUrl, setTrackUrl] = useState(null);
     const [tracksList, setTrackList] = useState([]);
     const [currentTrack, setCurrentTrack] = useState(null);
+    const [showHidePlayerContent, setShowHidePlayerContent] = useState(false);
 
     const audioPlayer = useRef();
     const containerRef = useRef(null);
@@ -70,17 +71,22 @@ const MainPlayer = () => {
         playNext();
     }
 
+    const showHideCallback = (isHide) => {
+        setShowHidePlayerContent(isHide)
+    }
+
     const returnPlayer = () => {
         return (
             <div className="container">
                 <div className="player-wrapper">
-                    <div id="player-track">
+                    <div id="player-track" className={showHidePlayerContent ? 'active' : ''}>
                         <TimeLineController audioState={audioState} player={player} data={currentTrack} />
                     </div>
                     <MusicArt
                         playPause={{
                             player: player,
                             audioState: audioState
+
                         }}
                         playNext={e => {
                             e.stopPropagation();
@@ -92,6 +98,8 @@ const MainPlayer = () => {
                             playPrevious()
                         }}
                         data={currentTrack}
+                        showHideCallback={showHideCallback}
+                        showHidePlayerContent={showHidePlayerContent}
                     />
                 </div>
             </div>
