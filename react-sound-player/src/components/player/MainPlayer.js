@@ -39,10 +39,19 @@ const MainPlayer = () => {
         setAudioState("loaded");
     }
 
+    const setPrevNext = (index) => {
+        let current = tracksList[index];
+        setCurrentTrack(current);
+        setShowHidePlayerContent(true);
+        audioPlayer.current.src = current.trackUrl;
+        player.play();
+    }
+
     const playNext = () => {
-        let actual = tracksList[seekCurrentIndex() + 1];
-        setCurrentTrack(actual)
-        audioPlayer.current.src = actual.trackUrl;
+        let current = seekCurrentIndex() + 1;
+        if (tracksList.length !== current) {
+            setPrevNext(seekCurrentIndex() + 1);
+        }
     }
 
     const playPrevious = () => {
@@ -50,10 +59,8 @@ const MainPlayer = () => {
             player.currentTime = 0;
         } else {
             let index = seekCurrentIndex();
-            if (index !== -1) {
-                let current = tracksList[seekCurrentIndex() - 1];
-                setCurrentTrack(current)
-                audioPlayer.current.src = current.trackUrl;
+            if (index !== -1 && index !== 0) {
+                setPrevNext(seekCurrentIndex() - 1);
             } else {
                 player.currentTime = 0;
             }
