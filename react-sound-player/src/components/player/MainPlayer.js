@@ -74,7 +74,7 @@ const MainPlayer = () => {
         return (
             <div className="container">
                 <div className="player-wrapper">
-                    <div className="player-track">
+                    <div id="player-track">
                         <TimeLineController audioState={audioState} player={player} data={currentTrack} />
                     </div>
                     <MusicArt

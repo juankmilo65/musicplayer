@@ -1,6 +1,5 @@
 
 import React from "react";
-import { IconButton, CircularProgress } from "@material-ui/core/";
 import {
     Pause,
     PlayArrow
